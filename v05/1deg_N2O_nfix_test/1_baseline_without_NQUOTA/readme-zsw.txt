@@ -14,17 +14,17 @@ Initialize the project directory and clone the required repositories:
 Create the build directory and link the modified source codes.
   mkdir build
   cd build
-  cp ../code/code_darwin_new/DARWIN_DIAGS.h .
-  cp ../code/code_darwin_new/darwin_plankton.F .
-  cp ../code/code_darwin_new/darwin_forcing.F .
-  cp ../code/code_darwin_new/darwin_diag*init* .
-  cp /THL7/home/yfeng1982_5/darwin_simulation/1deg_code/code_darwin_v4r4_n2o/darwin_forcing.F .
-  ln -sf ../code/code_darwin_new/* .
-  ln -sf ../code/code_darwin_new_add_diags/* .
+  cp ../code_darwin_new/DARWIN_DIAGS.h .
+  cp ../code_darwin_new/darwin_plankton.F .
+  cp ../code_darwin_new/darwin_forcing.F .
+  cp ../code_darwin_new/darwin_diag*init* .
+  cp ../1deg_code/code_darwin_v4r4_n2o/darwin_forcing.F .
+  ln -sf ../code_darwin_new/* .
+  ln -sf ../code_darwin_new_add_diags/* .
   rm DIAGNOSTICS_SIZE*
 
   ../tools/genmake2 -mpi -of ../tools/build_options/linux_amd64_ifort+mpi_ice_hpc2 \
-    -mo '../../1deg_code/code_darwin_v4r4_n2o ../../1deg_code/code_darwin_v4r4 ../../1deg_code/code_v4r4'
+    -mo '../1deg_code/code_darwin_v4r4_n2o ../1deg_code/code_darwin_v4r4 ../1deg_code/code_v4r4'
   make depend
   make -j 16
 
@@ -40,7 +40,7 @@ Create the 'run' folder parallel to 'build', and link/copy the necessary input a
   rm data data.pkg data.diagnostics
   cp /.../1deg_code/input_darwin_v4r4/* .
   cp /.../1deg_code/input_darwin_v4r4_new/* .
-  cp /.../code/input_darwin/* .
+  cp /.../input_new/* .
 
   INPUTDIR="/THL7/home/yfeng1982_5/darwin_simulation/data/LLC90/Release4"
   ln -sf ../build/mitgcmuv .
